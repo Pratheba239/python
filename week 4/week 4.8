@@ -1,0 +1,16 @@
+N = int(input())
+seen_once = 0
+seen_multiple = 0
+while N > 0:
+digit = N % 10
+digit_mask = 1 << digit
+if seen_once & digit_mask:
+seen_multiple |= digit_mask
+seen_once |= digit_mask
+N //= 10
+non_repeated_digits = seen_once & ~seen_multiple
+non_repeated_count = 0
+for i in range(10):
+if non_repeated_digits & (1 << i):
+non_repeated_count += 1
+print(non_repeated_count)
