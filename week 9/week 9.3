@@ -1,0 +1,15 @@
+try:
+n=int(input())
+votes = {}
+for _ in range(n):
+candidate = input()
+if candidate in votes:
+votes[candidate] += 1
+else:
+votes[candidate] = 1
+max_votes = max(votes.values())
+winner = [candidate for candidate, votes in votes.items() if votes == max_votes]
+winner = min(winner)
+print(winner)
+except EOFError:
+print("No input provided")
